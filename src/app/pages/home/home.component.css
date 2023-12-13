@@ -1,0 +1,13 @@
+.container{
+    display: grid;
+    justify-items: center;    
+}
+
+img{
+    margin-top: 3%;
+    width: 75%;
+    height: 75%;
+    object-fit: cover;
+    border-radius: 3%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

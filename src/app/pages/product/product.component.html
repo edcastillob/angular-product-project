@@ -1,0 +1,12 @@
+<div class="container">
+    @for (product of productList; track $index) {
+    <div class="card" style="width: 18rem;">
+        <img  src="{{product.images}}" class="card-img-top" alt="{{product.name}}">
+        <div class="card-body">
+          <h5 class="card-title">{{product.name}}</h5>
+          <p class="card-text">{{product.description}}</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+}
+</div>
