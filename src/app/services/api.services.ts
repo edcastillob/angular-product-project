@@ -1,19 +1,31 @@
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpErrorResponse } from '@angular/common/http'
 import {  Injectable } from '@angular/core';
 import { IProduct } from '../models/product.model';
-import { Observable } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
+import * as cloudinary from 'cloudinary-core';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  constructor(private _http: HttpClient) { }
+  cloudinaryInstance: any;
+
+  constructor(private _http: HttpClient) { 
+    this.cloudinaryInstance = new cloudinary.Cloudinary({ cloud_name: 'prodelevatepf' })
+  }
   private urlBase: string = "http://localhost:3001/product"
 
   getProducts(): Observable<IProduct[]> {
-    return this._http.get<IProduct[]>(this.urlBase);
-  }
+    return this._http.get<IProduct[]>(this.urlBase)
+    .pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.error('Error en la solicitud HTTP:', error);
+        throw error;
+      })
+    );
+}
 
   getProductsInactive(): Observable<IProduct[]>{
     return this._http.get<IProduct[]>(`${this.urlBase}inactive`)
@@ -33,5 +45,20 @@ export class ApiService {
 
   updateProduct(id: string, product: IProduct): Observable<IProduct>{
     return this._http.put<IProduct>(`${this.urlBase}/${id}`, product);
+  }
+
+  uploadImage(file: File): Promise<any> {
+    return new Promise((resolve, reject) => {
+      const formData = new FormData();
+      formData.append('file', file);
+
+      this.cloudinaryInstance.uploader.upload(formData, (result: { secure_url: any; error: { message: any; }; }) => {
+        if (result.secure_url) {
+          resolve(result.secure_url);
+        } else {
+          reject(result.error.message);
+        }
+      });
+    });
   }
 }

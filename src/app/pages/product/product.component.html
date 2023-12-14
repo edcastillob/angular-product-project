@@ -4,8 +4,8 @@
         <img  src="{{product.images}}" class="card-img-top" alt="{{product.name}}">
         <div class="card-body">
           <h5 class="card-title">{{product.name}}</h5>
-          <p class="card-text">{{product.description}}</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <h5 class="card-title"><b>${{product?.price}}</b></h5>
+          <a class="btn btn-primary" (click)="navigate(product.id)">Details</a>
         </div>
     </div>
 }

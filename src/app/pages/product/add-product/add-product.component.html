@@ -1,0 +1,31 @@
+
+<div class="container">
+  <form [formGroup]="productForm" (ngSubmit)="newProduct()">
+    <!-- ... otros campos del formulario -->
+    <div class="mb-3">
+      <label for="name" class="form-label">Name:</label>
+      <input type="text" class="form-control" id="name" placeholder="...product name">
+      </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <input type="textarea" class="form-control" id="description" placeholder="...describe">
+      </div>
+    <div class="mb-3">
+      <label for="price" class="form-label">Price</label>
+      <input type="number" class="form-control" id="price" placeholder="...0.00">
+      </div>  
+    
+    <div class="mb-3">
+      <label for="category" class="form-label">Category</label>
+      <select class="form-select" id="category" formControlName="category">
+        <option value="">--- Select Category Product</option>
+        <option value="shoes">Shoes</option>
+        <option value="shirts">Shirts</option>
+        <option value="pants">Pants</option>
+        <option value="t-shirts">T-Shirts</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

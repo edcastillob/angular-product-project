@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +10,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   imports: [CommonModule, RouterOutlet, RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
+  providers:[HttpClient, ReactiveFormsModule]
 })
 export class AppComponent {
   title = 'Edcastillob- Angular 17';

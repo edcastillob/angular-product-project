@@ -1,0 +1,28 @@
+.loading{
+    width: 5%;
+    height: 5%;
+}
+.center-div{
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    margin-top: 2%;
+    display: flex;
+    flex-wrap: wrap;    
+    justify-content: center;
+}
+
+.card {
+
+  margin: 10px;
+
+  }
+  .card-title{
+    text-align: center;
+  }
+  .btn{
+    margin-right: auto;
+  }
