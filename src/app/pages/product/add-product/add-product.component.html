@@ -1,31 +1,48 @@
 
 <div class="container">
-  <form [formGroup]="productForm" (ngSubmit)="newProduct()">
-    <!-- ... otros campos del formulario -->
+  <form [formGroup]="formProduct" (ngSubmit)="enviar($event)">    
     <div class="mb-3">
       <label for="name" class="form-label">Name:</label>
-      <input type="text" class="form-control" id="name" placeholder="...product name">
+      <input type="text" class="form-control" id="name" placeholder="...product name" formControlName="name"
+      [ngClass]="{'is-invalid':  hasError('name', 'required') || hasError('name', 'minlength')}"
+      >
+      @if (hasError('name', 'required')) {<span class="text-danger">you have to complete this field name</span>}    
+      @if (hasError('name', 'minlength')) {<span class="text-danger">you have to write at least 3 characters</span>}
       </div>
     <div class="mb-3">
       <label for="description" class="form-label">Description</label>
-      <input type="textarea" class="form-control" id="description" placeholder="...describe">
+      <input type="textarea" class="form-control" id="description" placeholder="...describe" formControlName="description"
+      [ngClass]="{'is-invalid':  hasError('description', 'required') || hasError('description', 'minlength')}"
+      >
+      @if (hasError('description', 'required')) {<span class="text-danger">you have to complete this field description</span>}    
+      @if (hasError('description', 'minlength')) {<span class="text-danger">you have to write at least 10 characters</span>}     
       </div>
     <div class="mb-3">
       <label for="price" class="form-label">Price</label>
-      <input type="number" class="form-control" id="price" placeholder="...0.00">
+      <input type="number" class="form-control" id="price" placeholder="...0.00" formControlName="price"
+      [ngClass]="{'is-invalid':  hasError('price', 'required')}"
+      >
+      @if (hasError('price', 'required')) {<span class="text-danger">you have to complete this field price</span>} 
       </div>  
-    
+      <div class="mb-3">
+        <label for="images" class="form-label">Images:</label>
+        <input type="text" class="form-control" id="images" placeholder="...product images" formControlName="images"       
+        >
+        </div>    
     <div class="mb-3">
       <label for="category" class="form-label">Category</label>
-      <select class="form-select" id="category" formControlName="category">
+      <select class="form-select" id="category" formControlName="category" formControlName="category"
+      [ngClass]="{'is-invalid':  hasError('category', 'required')}"
+      >
         <option value="">--- Select Category Product</option>
         <option value="shoes">Shoes</option>
         <option value="shirts">Shirts</option>
         <option value="pants">Pants</option>
         <option value="t-shirts">T-Shirts</option>
       </select>
-    </div>
+      @if (hasError('category', 'required')) {<span class="text-danger">you have to complete this field category</span>}    
 
+    </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>

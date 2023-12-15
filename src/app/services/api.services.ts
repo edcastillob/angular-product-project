@@ -35,9 +35,28 @@ export class ApiService {
     return this._http.get<IProduct>(`${this.urlBase}/${id}`);
   }
 
-  newProduct(product: IProduct): Observable<IProduct>{
-    return this._http.post<IProduct>(this.urlBase, product)
-  }
+//   newProduct(product: IProduct): Observable<IProduct>{
+//     console.log(product)
+//     return this._http.post<IProduct>(this.urlBase, product)
+//     .pipe(
+//       catchError((error: HttpErrorResponse) => {
+//         console.error('Error en la solicitud HTTP:', error);
+//         throw error;
+//       })
+//     );
+// }
+newProduct(product: IProduct): Observable<IProduct> {
+  console.log('__________',this.urlBase, product, '__________')
+  console.log('Enviando solicitud para agregar producto:', product);
+  return this._http.post<IProduct>(this.urlBase, product)
+    .pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.error('Error en la solicitud HTTP al agregar producto:', error);
+        throw error;
+      })
+    );
+}
+
 
   deleteProducts(id: string): Observable<IProduct> {
     return this._http.delete<IProduct>(`${this.urlBase}/${id}`);

@@ -10,16 +10,22 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="" ngClass="{active: menuOption == 'home'}" (click)="onOption('home')">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/products" ngClass="{active: menuOption == 'product'}" (click)="onOption('product')">Products</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Products
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" routerLink="/products">View Products</a></li>
+              <li><a class="dropdown-item" routerLink="/products-add">New Product</a></li>
+            </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="/contact" ngClass="{active: menuOption == 'contact'}" (click)="onOption('contact')">Contact</a>
           </li>
-         
         </ul>
       </div>
     </div>
   </nav>
   
   <router-outlet></router-outlet>
+  
