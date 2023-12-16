@@ -16,9 +16,9 @@ export class ProductComponent implements OnInit {
   private _apiService = inject(ApiService)
   private _router = inject(Router)
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
     this._apiService.getProducts().subscribe((data: IProduct[]) => {       
-      this.productList = data        
+      this.productList = data   
       },
       (error) => {
         console.error('Error al obtener productos:', error);
@@ -26,6 +26,6 @@ export class ProductComponent implements OnInit {
   }
 
   navigate(id: number){ 
-    this._router.navigate(['/products', id])
+    this._router.navigate(['/product', id])
   }
 }

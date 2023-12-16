@@ -31,10 +31,8 @@ export class AddProductComponent implements OnInit{
   }
 
   enviar(event: Event){
-    event.preventDefault();
-    // console.log(this.formProduct.value)
-    this._apiService.newProduct(this.formProduct.value)
-    console.log('envie', this.formProduct.value)
+    event.preventDefault();    
+    this._apiService.newProduct(this.formProduct.value)    
   }
   
   hasError(field: string, typeError: string){

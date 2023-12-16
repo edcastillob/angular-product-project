@@ -31,7 +31,7 @@ export class ProductDetailComponent implements OnInit {
      })
   }
 navigate(){
-  this._navigate.navigate(['/products']);
+  this._navigate.navigate(['/product']);
 
 }
 }

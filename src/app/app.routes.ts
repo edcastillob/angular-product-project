@@ -8,9 +8,9 @@ import { AddProductComponent } from './pages/product/add-product/add-product.com
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
-    {path: 'products', component: ProductComponent},
-    {path: 'products/:id', component: ProductDetailComponent},
-    {path: 'products-add', component: AddProductComponent},
+    {path: 'product', component: ProductComponent},
+    {path: 'product/:id', component: ProductDetailComponent},
+    {path: 'product-add', component: AddProductComponent},
     {path: 'contact', component: ContactComponent},
     {path: '**', redirectTo: '', pathMatch:'full'},
 ];
