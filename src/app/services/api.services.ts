@@ -1,9 +1,8 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http'
+import { HttpClient, HttpErrorResponse } from '@angular/common/http'
 import {  Injectable } from '@angular/core';
 import { IProduct } from '../models/product.model';
 import { Observable, catchError } from 'rxjs';
 import * as cloudinary from 'cloudinary-core';
-import { CorsInterceptor } from '../cors/cors.interceptor';
 
 
 @Injectable({
@@ -16,7 +15,7 @@ export class ApiService {
   constructor(private _http: HttpClient) { 
     this.cloudinaryInstance = new cloudinary.Cloudinary({ cloud_name: 'prodelevatepf' })
   }
-  private urlBase: string = "http://localhost:3001/product"
+ private urlBase: string = "http://localhost:3001/product"
 
   getProducts(): Observable<IProduct[]> {
     return this._http.get<IProduct[]>(this.urlBase)
@@ -39,11 +38,8 @@ export class ApiService {
 newProduct(product: IProduct): Observable<IProduct> {
   console.log('Enviando solicitud para agregar producto:', product);
   
-  const headers = new HttpHeaders({
-    'Content-Type': 'application/json',
-  }); 
   return this._http
-    .post<IProduct>(this.urlBase, product, { headers, responseType: 'json' })
+    .post<IProduct>(this.urlBase, product, {  responseType: 'json' })
     .pipe(
       catchError((error: HttpErrorResponse) => {
         console.error('Error en la solicitud HTTP al agregar producto:', error);
