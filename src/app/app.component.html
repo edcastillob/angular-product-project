@@ -1,31 +1,36 @@
 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#"><img class="fav" src="../favicon.ico" alt="Ed">Angular App</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="" ngClass="{active: menuOption == 'home'}" (click)="onOption('home')">Home</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Products
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" routerLink="/product">View Products</a></li>
-              <li><a class="dropdown-item" routerLink="/product-add">New Product</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/contact" ngClass="{active: menuOption == 'contact'}" (click)="onOption('contact')">Contact</a>
-          </li>
-        </ul>
-      </div>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+  <div class="container-fluid">
+    <!-- Icono a la izquierda -->
+    <a class="navbar-brand" routerLink=""><img class="fav" src="../assets/favicon.ico" alt="Ed">Angular App</a>
+    
+    <!-- Botón de alternancia para pantallas pequeñas -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <!-- Contenedor del menú -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto"> <!-- 'ms-auto' para alinear a la derecha -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Products
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" routerLink="products">View Products</a></li>
+            <li><a class="dropdown-item" routerLink="product-add">New Product</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="contact">Contact</a>
+        </li>
+      </ul>
     </div>
-  </nav>
-  
-  <router-outlet></router-outlet>
-  
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

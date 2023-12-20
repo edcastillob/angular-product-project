@@ -1,0 +1,17 @@
+<div class="center">
+  <div *ngIf="!loading" class="card" style="width: 35rem;">   
+    <img src="{{product?.images}}" class="card-img-top" alt="{{product?.name}}" (error)="handleImageError($event)">
+    <div class="card-body">
+      <h5 class="card-title">{{product?.name| uppercase}}</h5>
+      <h6 class="card-title">{{product?.price | currency}}</h6>
+      <p class="card-text"><b>{{product?.description}}</b></p>
+      <a  routerLink="/products">
+        <img src="../../assets/atras.png" width="55px" alt="back">
+      </a>
+    </div>
+  </div>
+</div>
+<ng-container *ngIf="loading">
+<img class="img" src="../../assets/loading.gif" alt="loading">
+</ng-container>
+

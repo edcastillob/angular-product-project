@@ -1,0 +1,25 @@
+
+   <div class="container">
+     <div  class="card" style="width: 18rem" *ngFor="let product of productsList">
+       <div class="card-body d-flex flex-column">
+         <h5 class="card-title">{{ product.name }}</h5>
+         <h5 class="card-title">
+           <b>{{ product?.price | currency }}</b>
+         </h5>
+         <img
+           src="{{ product.images }}"
+           class="card-img-top"
+           alt="{{ product.name }}"
+         />
+       </div>
+   
+       <button
+         type="button"
+         class="btn btn-dark"
+         [routerLink]="['/products', product.id]"
+       >
+         View Detail
+       </button>
+     </div>
+   </div>
+
