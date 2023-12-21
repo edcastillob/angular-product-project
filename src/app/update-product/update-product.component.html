@@ -1,0 +1,40 @@
+<div class="container">
+
+<div *ngIf="product">
+    <h2>Update Product</h2>
+    <hr>
+    <form (ngSubmit)="updateProduct()">
+      <label for="productName" class="form-label">Product Name:</label>
+      <input class="form-control" type="text" id="productName" [(ngModel)]="product.name" name="productName" required>
+  
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <input type="textarea" class="form-control" id="description" [(ngModel)]="product.description" name="description" required>       
+      </div>
+      
+      <label class="form-label" for="productPrice">Product Price:</label>
+      <input class="form-control" type="number" id="productPrice" [(ngModel)]="product.price" name="productPrice" required>
+
+      <div class="mb-3">
+        <label for="images" class="form-label">Images:</label>
+        <input type="text" class="form-control" id="images" [(ngModel)]="product.images" name="images" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="category" class="form-label">Category</label>
+        <select class="form-select" id="category" [(ngModel)]="product.category" name="category">
+          <option value="">--- Select Category Product</option>
+          <option value="shoes">Shoes</option>
+          <option value="shirts">Shirts</option>
+          <option value="pants">Pants</option>
+          <option value="t-shirts">T-Shirts</option>
+        </select>       
+      </div>  
+  
+      <a  routerLink="/products">
+        <img src="../../assets/back.png" width="4%" alt="back" style="margin-right: 15px;">
+      </a>
+      <button type="submit" class="btn btn-primary mt-3">Update Product</button>
+    </form>
+  </div>
+</div>

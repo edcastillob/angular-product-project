@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProductsList, Product } from '../products/products.mock';
 import { ApiService } from '../services/api.service';
 import { IProduct } from '../models/product.model';
 

@@ -5,12 +5,14 @@ import { ProductsComponent } from './products/products.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProductAddComponent } from './product-add/product-add.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'products', component: ProductsComponent},
   {path: 'products/:productId', component: ProductDetailComponent},
   {path: 'product-add', component: ProductAddComponent},
+  {path: 'update-product/:id', component: UpdateProductComponent },
   {path: 'contact', component: ContactComponent},
   {path: '**', redirectTo: '', pathMatch:'full'}
 ];

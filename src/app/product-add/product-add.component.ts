@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { ApiService } from '../services/api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { state, style, trigger } from '@angular/animations';
+import { ActivatedRoute, Router } from '@angular/router'; // Importa el tipo Router
 
 
 @Component({
@@ -20,6 +21,8 @@ export class ProductAddComponent implements OnInit{
   formProduct!: FormGroup;
   
   constructor( 
+    private route: ActivatedRoute,
+    private routerService: Router, // Cambiar el nombre de la variable a 'routerService'
     private formBuilder : FormBuilder,
     private _apiService : ApiService,
     private _snackBar: MatSnackBar
@@ -42,9 +45,12 @@ export class ProductAddComponent implements OnInit{
     }
     
     
-    showMessage(message: string) {
+    showMessageAndRedirect(message: string): void {
       this._snackBar.open(message, 'Cerrar', {
-        duration: 3000, // Duración en milisegundos
+        duration: 3000,
+      }).afterDismissed().subscribe(() => {
+        // Redirigir a la ruta /products después de mostrar el mensaje
+        this.routerService.navigate(['/products']); // Utilizar 'routerService'
       });
     }
 
@@ -64,7 +70,7 @@ export class ProductAddComponent implements OnInit{
           console.log('Producto añadido con éxito:', response);
           // Puedes agregar cualquier lógica adicional después de agregar el producto
           this.formProduct.reset();
-          this.showMessage('Product created successfully');
+          this.showMessageAndRedirect('Product create successfully');
           
         },
         (error) => {

@@ -16,10 +16,9 @@ export class ApiService {
     return this._httpClient.get<IProduct[]>(`${this.baseURL}`)
   }
 
-  public getProductById(id: number): Observable<IProduct>{
+  public getProductById(id: string): Observable<IProduct>{
     return this._httpClient.get<IProduct>(`${this.baseURL}/${id}`)
   }
-  
  
 
   public newProduct(product: IProduct): Observable<IProduct>{
@@ -27,11 +26,11 @@ export class ApiService {
     return this._httpClient.post<IProduct>(`${this.baseURL}`, product)
   }
   
-  public updateProduct(id: number, product: IProduct): Observable<IProduct>{
-    return this._httpClient.put<IProduct>(`${this.baseURL}/products/${id}`, product)
+  public updateProduct(id: string, product: IProduct): Observable<IProduct>{
+    return this._httpClient.put<IProduct>(`${this.baseURL}/${id}`, product)
   }
 
-  public deleteProduct(id: number): Observable<IProduct>{
-    return this._httpClient.delete<IProduct>(`${this.baseURL}/products/${id}`)
+  public deleteProduct(id: string): Observable<IProduct>{
+    return this._httpClient.delete<IProduct>(`${this.baseURL}/${id}`)
   }
 }

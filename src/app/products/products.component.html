@@ -1,25 +1,50 @@
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-lg-4 ">
+    <div class="col mb-3" *ngFor="let product of productsList">
+      <div class="card h-100 ">
+        <div class="image-container imgP" style="height: 250px;">
+          <img
+            src="{{ product.images }}"
+            class="card-img-top img-fluid "
+            alt="{{ product.name }}"
+            style="object-fit: contain; height: 100%; width: 100%;"
+          />
+        </div>
 
-   <div class="container">
-     <div  class="card" style="width: 18rem" *ngFor="let product of productsList">
-       <div class="card-body d-flex flex-column">
-         <h5 class="card-title">{{ product.name }}</h5>
-         <h5 class="card-title">
-           <b>{{ product?.price | currency }}</b>
-         </h5>
-         <img
-           src="{{ product.images }}"
-           class="card-img-top"
-           alt="{{ product.name }}"
-         />
-       </div>
-   
-       <button
-         type="button"
-         class="btn btn-dark"
-         [routerLink]="['/products', product.id]"
-       >
-         View Detail
-       </button>
-     </div>
-   </div>
+        <div class="mt-auto">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <h5 class="card-title">
+              <b>{{ product?.price | currency }}</b>
+            </h5>
+            <hr>
 
+            <div class="d-flex justify-content-between ">
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                [routerLink]="['/products', product.id]"
+              >
+                <img class="edit" src="../../assets/detalle.png" alt="Detail">
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                [routerLink]="['/update-product', product.id]"
+              >
+                <img class="edit" src="../../assets/edit.png" alt="Edit">
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                (click)="openDeleteConfirmationDialog(product.id)"
+              >
+                <img class="edit" src="../../assets/eliminar.png" alt="Delete">
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -12,6 +12,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductAddComponent } from './product-add/product-add.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UpdateProductComponent } from './update-product/update-product.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ConfirmationDialogComponentComponent } from './confirmation/confirmation-dialog-component/confirmation-dialog-component.component';
+
 
 
 @NgModule({
@@ -21,7 +25,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProductsComponent,
     ContactComponent,
     ProductDetailComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    UpdateProductComponent,
+    ConfirmationDialogComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +36,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,// form reactive
     HttpClientModule,
     MatSnackBarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
