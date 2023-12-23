@@ -12,6 +12,7 @@ import { ConfirmationDialogComponentComponent } from '../confirmation/confirmati
 })
 export class ProductsComponent implements OnInit{
   productsList: IProduct[] = [];
+  searchQuery: string = '';
 
 
   constructor( 
@@ -47,5 +48,15 @@ deleteProduct(id: string): void {
       this.productsList = data;
     });
   });
+}
+searchProducts(): IProduct[] {
+  if (!this.searchQuery) {
+    return this.productsList; // No hay consulta de búsqueda, devuelve la lista completa
+  }
+
+  // Filtra los productos basándose en la búsqueda (no case-sensitive)
+  return this.productsList.filter(product =>
+    product.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+  );
 }
 }

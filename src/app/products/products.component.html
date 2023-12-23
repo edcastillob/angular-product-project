@@ -1,6 +1,7 @@
 <div class="container">
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-lg-4 ">
-    <div class="col mb-3" *ngFor="let product of productsList">
+  <div><input type="search" class="search" [(ngModel)]="searchQuery" placeholder="Search Products" /></div>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-lg-4 ">
+    <div class="col mb-3" *ngFor="let product of searchProducts()">
       <div class="card h-100 ">
         <div class="image-container imgP" style="height: 250px;">
           <img
