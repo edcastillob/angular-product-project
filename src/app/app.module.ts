@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ConfirmationDialogComponentComponent } from './confirmation/confirmation-dialog-component/confirmation-dialog-component.component';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 
 
@@ -37,7 +38,8 @@ import { ConfirmationDialogComponentComponent } from './confirmation/confirmatio
     HttpClientModule,
     MatSnackBarModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    NgxDropzoneModule
   ],
   providers: [],
   bootstrap: [AppComponent]

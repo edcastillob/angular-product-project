@@ -25,23 +25,32 @@
         <span *ngIf="hasError('price', 'required')" class="text-danger">you have to complete this field price</span>
       </div>
   
-      <div class="mb-3">
-        <label for="images" class="form-label">Images:</label>
-        <input type="text" class="form-control" id="images" placeholder="...product images" formControlName="images">
-      </div>
-  
+      
       <div class="mb-3">
         <label for="category" class="form-label">Category</label>
         <select class="form-select" id="category" formControlName="category"
-          [ngClass]="{'is-invalid':  hasError('category', 'required')}">
-          <option value="">--- Select Category Product</option>
-          <option value="shoes">Shoes</option>
-          <option value="shirts">Shirts</option>
-          <option value="pants">Pants</option>
-          <option value="t-shirts">T-Shirts</option>
-        </select>
-        <span *ngIf="hasError('category', 'required')" class="text-danger">you have to complete this field category</span>
-      </div>  
+        [ngClass]="{'is-invalid':  hasError('category', 'required')}">
+        <option value="">--- Select Category Product</option>
+        <option value="shoes">Shoes</option>
+        <option value="shirts">Shirts</option>
+        <option value="pants">Pants</option>
+        <option value="t-shirts">T-Shirts</option>
+      </select>
+      <span *ngIf="hasError('category', 'required')" class="text-danger">you have to complete this field category</span>
+    </div>  
+
+    <div class="mb-3">
+      <ngx-dropzone (change)="onSelect($event)">
+        <ngx-dropzone-label>product image</ngx-dropzone-label>
+        <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">        
+        </ngx-dropzone-image-preview>
+      </ngx-dropzone>
+      <!-- <div><button (click)="onUpLoad($event)">Enviar</button></div> -->
+    </div>
+    <!-- <div class="mb-3">
+      <label for="images" class="form-label">Images:</label>
+      <input type="text" class="form-control" id="images" placeholder="...product images" formControlName="images">
+    </div> -->
       <button type="submit" class="btn btn-primary p-1">Submit</button>
     </form>
   </div>

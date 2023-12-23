@@ -1,4 +1,24 @@
+# Proyecto CRUD de productos con Angular 16
 
+## Imágenes de la Aplicación
+
+### Home de la SPA
+![Home](https://raw.githubusercontent.com/edcastillob/angular-product-project/main/src/assets/app/home.png)
+
+### Página de Productos
+![Productos](https://raw.githubusercontent.com/edcastillob/angular-product-project/main/src/assets/app/products.png)
+
+### Crear Producto
+![Nuevo Producto](https://raw.githubusercontent.com/edcastillob/angular-product-project/main/src/assets/app/NewProduct.png)
+
+### Detalle de Producto
+![Detalle Producto](https://raw.githubusercontent.com/edcastillob/angular-product-project/main/src/assets/app/Detail.png)
+
+### Página de Eliminación de Producto
+![Eliminar Producto](https://raw.githubusercontent.com/edcastillob/angular-product-project/main/src/assets/app/Delete.png)
+
+### Formulario Contacto
+![Formulario de Contacto](https://raw.githubusercontent.com/edcastillob/angular-product-project/main/src/assets/app/contact.png)
 
 
 
