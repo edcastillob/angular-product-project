@@ -1,7 +1,17 @@
 <div class="container">
+  <!-- Barra de busqueda -->
   <div><input type="search" class="search" [(ngModel)]="searchQuery" placeholder="Search Products" /></div>
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-lg-4 ">
-    <div class="col mb-3" *ngFor="let product of searchProducts()">
+  <!-- filtros categoria  -->
+    <!-- Filtro por categorías -->
+    <div>
+      <label for="categoryFilter">Filter by Category:</label>
+      <select id="categoryFilter" [(ngModel)]="selectedCategory">
+        <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+      </select>
+    </div>
+    
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-lg-4 ">
+    <div class="col mb-3" *ngFor="let product of getFilteredProducts()">
       <div class="card h-100 ">
         <div class="image-container imgP" style="height: 250px;">
           <img

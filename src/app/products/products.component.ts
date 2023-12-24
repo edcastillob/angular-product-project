@@ -13,7 +13,8 @@ import { ConfirmationDialogComponentComponent } from '../confirmation/confirmati
 export class ProductsComponent implements OnInit{
   productsList: IProduct[] = [];
   searchQuery: string = '';
-
+  categories: string[] = [];
+  selectedCategory: string = 'All';
 
   constructor( 
     private _apiService: ApiService,
@@ -22,7 +23,7 @@ export class ProductsComponent implements OnInit{
 ngOnInit(): void {    
     this._apiService.getAllProducts().subscribe((data: IProduct[]) => { 
       this.productsList = data
-      
+      this.extractCategories()
       
      })
 }
@@ -59,4 +60,37 @@ searchProducts(): IProduct[] {
     product.name.toLowerCase().includes(this.searchQuery.toLowerCase())
   );
 }
+
+extractCategories(): void {
+  // Extrae las categorías únicas de la lista de productos
+  this.categories = Array.from(new Set(this.productsList.map(product => product.category)));
+  this.categories.unshift('All'); // Agrega la opción 'All' al principio
+}
+filterProductsByCategory(): IProduct[] {
+  if (this.selectedCategory === 'All') {
+    return this.productsList; // Mostrar todos los productos si la categoría seleccionada es 'All'
+  } else {
+    return this.productsList.filter(product => product.category === this.selectedCategory);
+  }
+}
+
+getFilteredProducts(): IProduct[] {
+  let filteredProducts = this.productsList;
+
+  // Apply category filter
+  if (this.selectedCategory !== 'All') {
+    filteredProducts = filteredProducts.filter(product => product.category === this.selectedCategory);
+  }
+
+  // Apply search filter
+  if (this.searchQuery) {
+    filteredProducts = filteredProducts.filter(product =>
+      product.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+    );
+  }
+
+  return filteredProducts;
+}
+
+
 }
