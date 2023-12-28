@@ -16,6 +16,8 @@ import { UpdateProductComponent } from './update-product/update-product.componen
 import { MatDialogModule } from '@angular/material/dialog';
 import { ConfirmationDialogComponentComponent } from './confirmation/confirmation-dialog-component/confirmation-dialog-component.component';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -28,7 +30,9 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     ProductDetailComponent,
     ProductAddComponent,
     UpdateProductComponent,
-    ConfirmationDialogComponentComponent
+    ConfirmationDialogComponentComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,28 @@
+<div class="container">
+    <form [formGroup]="formLogin" (ngSubmit)="enviar()">    
+      <h1>Login</h1>
+      <hr>
+      <div class="mb-3 imgAvatar">       
+            <img class="avatar" src="../../assets/user.png" alt="img User">
+      </div>
+      <div class="mb-3">
+            <label for="user" class="form-label">User: Username/Email</label>
+            <input type="text" class="form-control" id="user" placeholder="...insert username or email" formControlName="user"
+            [ngClass]="{'is-invalid':  hasError('user', 'required') || hasError('user', 'minlength')}">
+            <span *ngIf="hasError('user', 'required')" class="text-danger">you have to complete this field user</span>
+            <span *ngIf="hasError('user', 'minlength')" class="text-danger">you have to write at least 6 characters</span>
+    </div>
+     <div>
+          <label for="password" class="form-label">Password:</label>
+          <input type="password" class="form-control" id="email" placeholder="...insert password" formControlName="password"
+            [ngClass]="{'is-invalid':  hasError('password', 'required')}">
+          <span *ngIf="hasError('password', 'required')" class="text-danger">you have to complete this field password</span>
+          <span *ngIf="hasError('password', 'minlength')" class="text-danger">you have to write at least 5 characters</span>
+          <span *ngIf="hasError('password', 'invalidPassword')" class="text-danger"> must contain a capital letter, a number and a small letter at least</span>
+        </div>
+        <button type="submit" class="btn btn-primary p-1 mt-3 mb-3">Submit</button>
+      </form>
+      <span>If you don't have an account, <a style="text-decoration: none;" routerLink="/register">register here</a></span>
+
+    </div>
+    

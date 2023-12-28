@@ -12,7 +12,8 @@
     
     <!-- Contenedor del menú -->
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto"> <!-- 'ms-auto' para alinear a la derecha -->
+      
+      <ul class="navbar-nav ms-auto"> <!-- 'ms-auto' para alinear a la derecha -->        
         <li class="nav-item">
           <a class="nav-link" routerLink="">Home</a>
         </li>
@@ -22,15 +23,32 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" routerLink="products">View Products</a></li>
-            <li><a class="dropdown-item" routerLink="product-add">New Product</a></li>
+            <li *ngIf="getAvatarFromLocalStorage()"><a class="dropdown-item" routerLink="product-add">New Product</a></li>
           </ul>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="contact">Contact</a>
         </li>
+        <!-- Modificación -->
+          <li *ngIf="!getAvatarFromLocalStorage()" class="nav-item">
+          <a class="nav-link" routerLink="login">LogIn</a>
+          </li>
+          
+          <li *ngIf="getAvatarFromLocalStorage() && getFullNameFromLocalStorage()" class=" dropdown">
+          <a id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+          <span style="color: aqua;"> {{ getFullNameFromLocalStorage() }}</span>   
+          <!-- <img [src]="getAvatarFromLocalStorage()" alt="Image" class="avatar ">            -->
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" (click)="logOut()">LogOut</a></li>            
+          </ul>
+        </li>
+        <!-- Fin Modificación -->
       </ul>
+      <img  *ngIf="getAvatarFromLocalStorage()" [src]="getAvatarFromLocalStorage()" alt="Image" class="avatar ">           
     </div>
   </div>
 </nav>
 
 <router-outlet></router-outlet>
+

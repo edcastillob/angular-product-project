@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { state, style, trigger } from '@angular/animations';
 import { ActivatedRoute, Router } from '@angular/router'; // Importa el tipo Router
 import { UploadService } from '../services/upload.service';
+import { UserService } from '../services/user.service';
 
 
 @Component({
@@ -30,6 +31,7 @@ export class ProductAddComponent implements OnInit{
     private _apiService : ApiService,
     private _snackBar: MatSnackBar,
     private _upLoadService: UploadService,
+    private _userService: UserService
     ){
     this.formProduct = formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
@@ -46,6 +48,15 @@ export class ProductAddComponent implements OnInit{
     //   this.formProduct.valueChanges.subscribe((valor) => { 
       //   console.log(valor)
       //  })
+     
+  const avatar = this._userService.getAvatarFromLocalStorage();
+
+  if (!avatar) {
+    // Si no hay avatar en el localStorage, redirige a /login
+    this.routerService.navigate(['/login']);
+  }
+        
+      
 
       this.formProduct.get('images')?.valueChanges.subscribe((value) => {
         if (value && value.length > 0) {

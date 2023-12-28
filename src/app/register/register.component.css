@@ -1,0 +1,43 @@
+.container {
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  /* Estilo para hacer el ngx-dropzone más pequeño */
+:host ngx-dropzone {
+  width: 100%;
+  height: 100%;
+  background: black;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilo para convertir el ngx-dropzone en un círculo */
+:host ngx-dropzone .ngx-dropzone-container {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+/* Estilo para centrar el texto dentro del ngx-dropzone */
+:host ngx-dropzone-label {
+  display: flex;
+  flex-direction: column; /* Alinear el texto en columna */
+  align-items: center;
+  justify-content: center;
+  color: aliceblue;
+}
+
+/* Estilo para hacer las miniaturas de imagen circulares */
+:host ngx-dropzone-image-preview .ngx-dropzone-thumbnail {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatar {
+  width: 15%;
+  height: 15%;
+}

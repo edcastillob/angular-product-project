@@ -1,0 +1,46 @@
+<div class="container">
+  <form [formGroup]="formRegister" (ngSubmit)="enviar()">    
+    <h1>New User</h1>
+    <hr>
+    <div class="mb-3">
+      <ngx-dropzone (change)="onSelect($event)">
+        <ngx-dropzone-label>
+          <img class="avatar" src="../../assets/user.png" alt="">
+          Clic to insert image user</ngx-dropzone-label>
+        <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
+        </ngx-dropzone-image-preview>
+      </ngx-dropzone>
+    </div>
+    <div class="mb-3">
+          <label for="fullname" class="form-label">Fullname:</label>
+          <input type="text" class="form-control" id="fullname" placeholder="...insert fullname" formControlName="fullname"
+          [ngClass]="{'is-invalid':  hasError('fullname', 'required') || hasError('fullname', 'minlength')}">
+          <span *ngIf="hasError('fullname', 'required')" class="text-danger">you have to complete this field fullname</span>
+          <span *ngIf="hasError('fullname', 'minlength')" class="text-danger">you have to write at least 6 characters</span>
+        </div>
+      <div class="mb-3">
+        <label for="username" class="form-label">Username:</label>
+        <input type="text" class="form-control" id="username" placeholder="...insert username" formControlName="username"
+          [ngClass]="{'is-invalid':  hasError('username', 'required') || hasError('username', 'minlength')}">
+        <span *ngIf="hasError('username', 'required')" class="text-danger">you have to complete this field username</span>
+        <span *ngIf="hasError('username', 'minlength')" class="text-danger">you have to write at least 5 characters</span>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="...insert email" formControlName="email"
+          [ngClass]="{'is-invalid':  hasError('email', 'required') || hasError('email', 'email')}">
+        <span *ngIf="hasError('email', 'required')" class="text-danger">you have to complete this field email</span>
+        <span *ngIf="hasError('email', 'email')" class="text-danger">format type email invalid</span>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password:</label>
+        <input type="password" class="form-control" id="email" placeholder="...insert password" formControlName="password"
+          [ngClass]="{'is-invalid':  hasError('password', 'required')}">
+        <span *ngIf="hasError('password', 'required')" class="text-danger">you have to complete this field password</span>
+        <span *ngIf="hasError('password', 'minlength')" class="text-danger">you have to write at least 5 characters</span>
+        <span *ngIf="hasError('password', 'invalidPassword')" class="text-danger"> must contain a capital letter, a number and a small letter at least</span>
+      </div>
+      <button type="submit" class="btn btn-primary p-1">Submit</button>
+    </form>
+  </div>
+  

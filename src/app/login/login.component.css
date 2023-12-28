@@ -1,0 +1,17 @@
+.avatar {
+  width: 15%;
+  height: 15%;
+}
+.imgAvatar {
+  display: flex;
+  justify-content: center;
+}
+.container {
+    width: 30%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);box-shadow: rgba(173, 173, 240, 0.25) 0px 50px 100px -20px, rgba(218, 208, 208, 0.3) 0px 30px 60px -30px, rgba(159, 197, 236, 0.35) 0px -2px 6px 0px inset;
+    padding: 2%;
+    border-radius: 2%;
+}
