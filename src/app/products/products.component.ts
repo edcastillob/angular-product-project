@@ -3,6 +3,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { IProduct } from '../models/product.model';
 import { ApiService } from '../services/api.service';
 import { ConfirmationDialogComponentComponent } from '../confirmation/confirmation-dialog-component/confirmation-dialog-component.component';
+import { CartService } from '../services/cart.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -18,6 +22,9 @@ export class ProductsComponent implements OnInit{
 
   constructor( 
     private _apiService: ApiService,
+    private _cartService: CartService,
+    private _snackBar: MatSnackBar,
+    private _routerService: Router,
     public dialog: MatDialog){}
 
 ngOnInit(): void {    
@@ -26,6 +33,12 @@ ngOnInit(): void {
       this.extractCategories()
       
      })
+}
+
+showMessageAndRedirect(message: string): void {
+  this._snackBar.open(message, 'Cerrar', {
+    duration: 3000,
+  })
 }
 
 openDeleteConfirmationDialog(id: string): void {
@@ -92,5 +105,10 @@ getFilteredProducts(): IProduct[] {
   return filteredProducts;
 }
 
+addToCart(product: IProduct): void {
+  this._cartService.addToCart(product);
+  this.showMessageAndRedirect(`${product.name} has been successfully added to your cart`);
+
+}
 
 }

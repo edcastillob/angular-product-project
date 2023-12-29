@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -18,6 +17,7 @@ import { ConfirmationDialogComponentComponent } from './confirmation/confirmatio
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { CartComponent } from './cart/cart.component';
 
 
 
@@ -32,7 +32,8 @@ import { LoginComponent } from './login/login.component';
     UpdateProductComponent,
     ConfirmationDialogComponentComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +44,7 @@ import { LoginComponent } from './login/login.component';
     MatSnackBarModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    NgxDropzoneModule
+    NgxDropzoneModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -46,6 +46,7 @@ private passwordValidator: ValidatorFn = (control: AbstractControl): ValidationE
           localStorage.setItem('token', response.token);
           localStorage.setItem('avatar', response.user.image[0]);
           localStorage.setItem('fullname', response.user.fullname);
+          localStorage.setItem('username', response.user.username);
           this.showMessageAndRedirect('Login successfully');
         },(error) => { 
           console.log('Error: ',error) 

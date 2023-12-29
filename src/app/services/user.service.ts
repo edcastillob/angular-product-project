@@ -30,4 +30,9 @@ export class UserService {
     const fullname = localStorage.getItem('fullname');
     return fullname ? fullname : "";
   }
+
+  getUser(): string { 
+    const username = localStorage.getItem('username'); 
+    return username ? username : ""; 
+  }
 }
