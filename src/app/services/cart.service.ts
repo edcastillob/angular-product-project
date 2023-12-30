@@ -17,9 +17,16 @@ export class CartService {
       this.cart = JSON.parse(storedCart);
     }
   }
-
+  realizarCompra(): Observable<any> {
+    // Realiza una solicitud GET al backend
+    return this._httpClient.get(this.baseURL);
+}
   getCart(): { product: IProduct; quantity: number }[] {
     return this.cart;
+  }
+  getCartData(): { product: IProduct; quantity: number }[] {
+    const storedCart = localStorage.getItem('cart');
+    return storedCart ? JSON.parse(storedCart) : [];
   }
 
   addToCart(product: IProduct): void {
@@ -72,6 +79,10 @@ export class CartService {
   getUser(): string { 
     const username = localStorage.getItem('username'); 
     return username ? username : ""; 
+  }
+  getFullname(): string { 
+    const fullname = localStorage.getItem('fullname'); 
+    return fullname ? fullname : ""; 
   }
 
   public newOrderBuy(data: any): Observable<any>{  

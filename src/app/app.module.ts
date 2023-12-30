@@ -18,6 +18,7 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
+import { ThankYouPageComponent } from './thank-you-page/thank-you-page.component';
 
 
 
@@ -33,7 +34,8 @@ import { CartComponent } from './cart/cart.component';
     ConfirmationDialogComponentComponent,
     RegisterComponent,
     LoginComponent,
-    CartComponent
+    CartComponent,
+    ThankYouPageComponent
   ],
   imports: [
     BrowserModule,

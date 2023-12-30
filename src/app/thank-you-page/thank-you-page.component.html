@@ -1,0 +1,45 @@
+<div class="container">
+    <img class="imgFav" src="../../assets/favicon.ico" alt="Logo">
+  <h3 
+  style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"  
+  >Hey, {{fullname}}. Thank You for Your Purchase!</h3>
+  <img style="width: 20%;" src="../../assets/cart3.png" alt="">
+  
+    <div *ngIf="idCompra">
+      <div class="invoice-container">
+        <h4  style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Invoice Details</h4>
+        
+        <div class="dateCab"><strong>Pay Id:</strong> {{ idCompra }}</div>
+        <div class="dateCab"><strong>Date:</strong> {{ getCurrentDate() }}</div>
+  
+        <h4 style="text-align: right;">Purchased products</h4>
+        <table class="table table-dark table-striped table-hover">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Quantity</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of products">
+              <td>{{ item.product.name }}</td>
+              <td>{{ item.quantity }}</td>
+              <td>${{ item.product.price * item.quantity }}</td>
+            </tr>
+          </tbody>
+        </table>
+  
+        <div class="total btn btn-success">
+          <strong><h5>Amount paid: $ {{ getTotal() }}</h5></strong>
+        </div>
+      </div>
+    </div>
+    <a (click)="printInvoice()"><img style="width: 3%; margin-top: 5px;" src="../../assets/print.png" alt="print"></a>
+  </div>
+
+
+  
+
+
+  
