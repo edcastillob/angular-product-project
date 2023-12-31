@@ -24,6 +24,8 @@ export class AppComponent{
       localStorage.removeItem('token');
       localStorage.removeItem('avatar'); 
       localStorage.removeItem('fullname'); 
+      localStorage.removeItem('username'); 
+      localStorage.removeItem('cart')
       this._route.navigate(['/products'])
     }
 }

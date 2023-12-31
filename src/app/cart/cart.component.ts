@@ -3,6 +3,8 @@ import { IProduct } from '../models/product.model';
 import { CartService } from '../services/cart.service';
 import { NgIfContext } from '@angular/common';
 import { Router } from '@angular/router';
+import { ConfirmationDialogComponentComponent } from '../confirmation/confirmation-dialog-component/confirmation-dialog-component.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-cart',
@@ -16,7 +18,7 @@ export class CartComponent implements OnInit {
   emptyCart!: TemplateRef<NgIfContext<boolean>> | null;
   user: string = "";
 
-  constructor(private _cartService: CartService, private _router: Router) {}
+  constructor(private _cartService: CartService, private _router: Router, public dialog: MatDialog) {}
 
   ngOnInit() {
     this.cartItems = this._cartService.getCart();
@@ -95,6 +97,37 @@ export class CartComponent implements OnInit {
 
   back() {
     this._router.navigate(['/products']);
+  }
+
+  openBuyConfirmationDialog(): void {
+    // const dialogRef = this.dialog.open(ConfirmationDialogComponentComponent);
+    const dialogRef = this.dialog.open(ConfirmationDialogComponentComponent, {
+      data: { message: '¿Do you want to proceed with the purchase?' },
+    });
+  
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if (result) {
+        // El usuario hizo clic en "Aceptar", realiza la acción de eliminación aquí
+        this.buy();
+      } else {
+        // El usuario hizo clic en "Cancelar" o cerró el diálogo, no hagas nada
+      }
+    });
+  }
+  openClearCartConfirmationDialog(): void {
+    // const dialogRef = this.dialog.open(ConfirmationDialogComponentComponent);
+    const dialogRef = this.dialog.open(ConfirmationDialogComponentComponent, {
+      data: { message: '¿you want to empty the shopping cart?' },
+    });
+  
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if (result) {
+        // El usuario hizo clic en "Aceptar", realiza la acción de eliminación aquí
+        this.clearCart();
+      } else {
+        // El usuario hizo clic en "Cancelar" o cerró el diálogo, no hagas nada
+      }
+    });
   }
 
 }

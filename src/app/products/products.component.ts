@@ -6,6 +6,7 @@ import { ConfirmationDialogComponentComponent } from '../confirmation/confirmati
 import { CartService } from '../services/cart.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
 
 
 
@@ -19,13 +20,15 @@ export class ProductsComponent implements OnInit{
   searchQuery: string = '';
   categories: string[] = [];
   selectedCategory: string = 'All';
+  user: string ="";
 
   constructor( 
     private _apiService: ApiService,
     private _cartService: CartService,
     private _snackBar: MatSnackBar,
     private _routerService: Router,
-    public dialog: MatDialog){}
+    public dialog: MatDialog,
+    private _userService: UserService){}
 
 ngOnInit(): void {    
     this._apiService.getAllProducts().subscribe((data: IProduct[]) => { 
@@ -42,7 +45,10 @@ showMessageAndRedirect(message: string): void {
 }
 
 openDeleteConfirmationDialog(id: string): void {
-  const dialogRef = this.dialog.open(ConfirmationDialogComponentComponent);
+  // const dialogRef = this.dialog.open(ConfirmationDialogComponentComponent);
+  const dialogRef = this.dialog.open(ConfirmationDialogComponentComponent, {
+    data: { message: '¿Are you sure to delete this product?' },
+  });
 
   dialogRef.afterClosed().subscribe((result: boolean) => {
     if (result) {
@@ -106,8 +112,15 @@ getFilteredProducts(): IProduct[] {
 }
 
 addToCart(product: IProduct): void {
-  this._cartService.addToCart(product);
-  this.showMessageAndRedirect(`${product.name} has been successfully added to your cart`);
+  this.user= this._userService.getUser();
+  console.log(this.user)
+  if(!this.user){
+    this.showMessageAndRedirect('¡To buy you must be logged in!');
+    this._routerService.navigate(['/login'])
+  }else{
+    this._cartService.addToCart(product);
+    this.showMessageAndRedirect(`${product.name} has been successfully added to your cart`);
+  }
 
 }
 
