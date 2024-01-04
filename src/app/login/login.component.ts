@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { OAuthServiceService } from '../services/oauth-service.service';
+
 
 @Component({
   selector: 'app-login',
@@ -17,7 +19,8 @@ export class LoginComponent {
   constructor( 
     private _userService: UserService,
     private _snackBar: MatSnackBar, 
-    private routerService: Router,){
+    private routerService: Router,
+    private oauthService: OAuthServiceService){
 
   this.formLogin = new FormGroup({
     user: new FormControl('', [Validators.required, Validators.minLength(5)]),    
@@ -29,6 +32,7 @@ export class LoginComponent {
     
   })
 }
+
 private passwordValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
   const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
   return regex.test(control.value) ? null : { invalidPassword: true };
@@ -36,7 +40,7 @@ private passwordValidator: ValidatorFn = (control: AbstractControl): ValidationE
   enviar(){
     if (this.formLogin.valid) {
       const user = this.formLogin.value;
-      console.log(user)
+      // console.log(user)
 
       this._userService.loginUser(user).subscribe(
         (response: any) => {  // Cambiado de IUserLogin a IResponseLogin
@@ -55,6 +59,14 @@ private passwordValidator: ValidatorFn = (control: AbstractControl): ValidationE
         })
   }
 }
+
+
+loginGoogle() {
+  this.oauthService.loginGoogle();
+}
+
+
+
 
 showMessageAndRedirect(message: string): void {
   this._snackBar.open(message, 'Cerrar', {

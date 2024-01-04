@@ -19,6 +19,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
 import { ThankYouPageComponent } from './thank-you-page/thank-you-page.component';
+import { OAuthModule } from 'angular-oauth2-oidc';
 
 
 
@@ -47,6 +48,7 @@ import { ThankYouPageComponent } from './thank-you-page/thank-you-page.component
     BrowserAnimationsModule,
     MatDialogModule,
     NgxDropzoneModule,
+    OAuthModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

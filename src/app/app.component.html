@@ -37,7 +37,7 @@
           <a class="nav-link" routerLink="login">LogIn</a>
           </li>
           
-          <li *ngIf="getAvatarFromLocalStorage() && getFullNameFromLocalStorage()" class=" dropdown">
+          <li *ngIf="getAvatarFromLocalStorage() && getFullNameFromLocalStorage() " class=" dropdown">
           <a id="navbarDropdown" role="button" data-bs-toggle="dropdown">
           <span style="color: aqua;"> {{ getFullNameFromLocalStorage() }}</span>   
           <!-- <img [src]="getAvatarFromLocalStorage()" alt="Image" class="avatar ">            -->
@@ -48,7 +48,7 @@
         </li>
         <!-- Fin Modificación -->
       </ul>
-      <img  *ngIf="getAvatarFromLocalStorage()" [src]="getAvatarFromLocalStorage()" alt="Image" class="avatar ">           
+      <img  *ngIf="getAvatarFromLocalStorage() " [src]="getAvatarFromLocalStorage()" alt="Image" class="avatar ">           
     </div>
   </div>
 </nav>

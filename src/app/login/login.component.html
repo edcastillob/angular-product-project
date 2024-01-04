@@ -21,8 +21,8 @@
           <span *ngIf="hasError('password', 'invalidPassword')" class="text-danger"> must contain a capital letter, a number and a small letter at least</span>
         </div>
         <button type="submit" class="btn btn-primary p-1 mt-3 mb-3">Submit</button>
-      </form>
+        <button type="button" class="btn btn-primary p-1 mt-3 mb-3" (click)="loginGoogle()">Login con Google</button>
+      </form>      
       <span>If you don't have an account, <a style="text-decoration: none;" routerLink="/register">register here</a></span>
-
     </div>
     

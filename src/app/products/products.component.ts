@@ -7,6 +7,7 @@ import { CartService } from '../services/cart.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
+import { OAuthServiceService } from '../services/oauth-service.service';
 
 
 
@@ -28,14 +29,18 @@ export class ProductsComponent implements OnInit{
     private _snackBar: MatSnackBar,
     private _routerService: Router,
     public dialog: MatDialog,
-    private _userService: UserService){}
+    private _userService: UserService,
+    private authGoogle: OAuthServiceService,
+    private routerService: Router,
+    ){}
 
 ngOnInit(): void {    
     this._apiService.getAllProducts().subscribe((data: IProduct[]) => { 
       this.productsList = data
-      this.extractCategories()
-      
+      this.extractCategories()      
      })
+
+     this.dataGoogle()
 }
 
 showMessageAndRedirect(message: string): void {
@@ -123,5 +128,25 @@ addToCart(product: IProduct): void {
   }
 
 }
+
+
+dataGoogle(){
+ 
+  const user = (this.authGoogle.getProfile());  
+  this.authGoogle.loginUserGoogle(user).subscribe(
+    (response: any) => {  
+      localStorage.setItem('token', response.token);
+      localStorage.setItem('avatar', response.user.image[0]);
+      localStorage.setItem('fullname', response.user.fullname);      
+  },(error) => { 
+    console.log('Error: ',error) 
+      
+    // this.showMessageError('invalid username or password');
+  
+    }
+  )
+}
+
+
 
 }

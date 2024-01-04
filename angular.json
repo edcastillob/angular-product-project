@@ -102,6 +102,39 @@
           }
         }
       }
+    },
+    "angular-oauth2-oidc": {
+      "projectType": "library",
+      "root": "projects/angular-oauth2-oidc",
+      "sourceRoot": "projects/angular-oauth2-oidc/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/angular-oauth2-oidc/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/angular-oauth2-oidc/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/angular-oauth2-oidc/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/angular-oauth2-oidc/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {
