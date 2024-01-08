@@ -20,6 +20,8 @@ import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
 import { ThankYouPageComponent } from './thank-you-page/thank-you-page.component';
 import { OAuthModule } from 'angular-oauth2-oidc';
+import { ReviewFormComponent } from './review-form/review-form.component';
+import { StarRatingModule } from 'angular-star-rating';
 
 
 
@@ -36,7 +38,9 @@ import { OAuthModule } from 'angular-oauth2-oidc';
     RegisterComponent,
     LoginComponent,
     CartComponent,
-    ThankYouPageComponent
+    ThankYouPageComponent,
+    ReviewFormComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -49,6 +53,8 @@ import { OAuthModule } from 'angular-oauth2-oidc';
     MatDialogModule,
     NgxDropzoneModule,
     OAuthModule.forRoot(),
+    FormsModule,
+    StarRatingModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
