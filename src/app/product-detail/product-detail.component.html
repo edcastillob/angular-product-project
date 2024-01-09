@@ -6,16 +6,15 @@
       <h6 class="card-title">{{product?.price | currency}}</h6>
       <p class="card-text"><b>{{product?.description}}</b></p>
       <div style="display: flex; justify-content: space-between;">
-      <a  routerLink="/products">
-        <img src="../../assets/atras.png" width="55px" alt="back">
-      </a>
-      <a *ngIf="viewReview" routerLink="/review"><img src="../../assets/reviews.png" alt="review" width="70px"></a>
-      <app-review-form *ngIf="viewReview" [productId]="productId"></app-review-form>
+        <a  routerLink="/products">
+          <img src="../../assets/atras.png" width="55px" alt="back">
+        </a>
+        <a *ngIf="viewReview" routerLink="/viewReview"><img src="../../assets/reviews.png" alt="review" width="70px"></a>        
     </div>
   </div>
-  </div>
+</div>
 </div>
 <ng-container *ngIf="loading">
-<img class="img" src="../../assets/loading.gif" alt="loading">
+  <img class="img" src="../../assets/loading.gif" alt="loading">
 </ng-container>
 
