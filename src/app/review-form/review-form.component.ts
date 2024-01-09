@@ -15,17 +15,17 @@ export class ReviewFormComponent {
 
   constructor(private _apiService: ApiService) {}
 
-  // submitReview() {
-  //   // Enviamos la revisión al backend
-  //   const reviewData = {
-  //     rating: this.rating,
-  //     comment: this.comment,
-  //     productId: this.productId  // Usamos el productId recibido como entrada
-  //   };
+  submitReview() {
+    // Enviamos la revisión al backend
+    const reviewData = {
+      rating: this.rating,
+      comment: this.comment,
+      productId: this.productId  // Usamos el productId recibido como entrada
+    };
 
-  //   this._apiService.submitReview(reviewData).subscribe((response: any) => {
-  //     // Manejar la respuesta del backend según sea necesario
-  //     console.log('Revisión enviada con éxito');
-  //   });
-  // }
+    // this._apiService.submitReview(reviewData).subscribe((response: any) => {
+    //   // Manejar la respuesta del backend según sea necesario
+    //   console.log('Revisión enviada con éxito');
+    // });
+  }
 }

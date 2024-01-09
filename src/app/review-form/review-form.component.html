@@ -1,13 +1,10 @@
-<div>
-    <h3>Deja tu revisión</h3>
-    
-    <!-- Rating con estrellas -->
-    <star-rating [(ngModel)]="rating" [readOnly]="false"></star-rating>
-    
-    <!-- Campo de comentario -->
-    <textarea [(ngModel)]="comment" placeholder="Escribe tu comentario"></textarea>
-    
-    <!-- Botón para enviar la revisión -->
-    <button>Enviar Revisión</button>
-  </div>
+<form (ngSubmit)="submitReview()">
+  <!-- Rating con estrellas -->
+  <star-rating [(ngModel)]="rating" [readOnly]="false"></star-rating>
   
+  <!-- Campo de comentario -->
+  <textarea [(ngModel)]="comment" placeholder="Comment here."></textarea>
+  
+  <!-- Botón para enviar la revisión -->
+  <button type="submit">Submit</button>
+</form>
