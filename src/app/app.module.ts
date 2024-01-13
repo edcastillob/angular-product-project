@@ -22,6 +22,7 @@ import { ThankYouPageComponent } from './thank-you-page/thank-you-page.component
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { ReviewFormComponent } from './review-form/review-form.component';
 import { StarRatingModule } from 'angular-star-rating';
+import { ProviderComponent } from './provider/provider.component';
 
 
 
@@ -40,6 +41,7 @@ import { StarRatingModule } from 'angular-star-rating';
     CartComponent,
     ThankYouPageComponent,
     ReviewFormComponent,
+    ProviderComponent,
     
   ],
   imports: [

@@ -1,0 +1,79 @@
+.cart-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+
+  .qty{
+    width: 15%;
+    text-align: center;
+    background: none;
+    font-weight: bold;
+    font-size: medium;
+    color: aliceblue;
+  }
+
+  .container {
+    width: 30%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2%;
+    border-radius: 4%;
+    box-shadow: rgba(1, 37, 61, 0.25) 0px 54px 55px, rgba(106, 109, 203, 0.12) 0px -12px 30px, rgba(136, 208, 218, 0.12) 0px 4px 6px, rgba(54, 65, 91, 0.17) 0px 12px 13px, rgba(4, 234, 250, 0.09) 0px -3px 5px;
+}
+
+
+.divCartEmpty {   
+    display: flex;
+    justify-content: center;
+  }
+
+ .imgCartEmpty{
+    width: 35%;
+ }
+ .imgDetail {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden; /* Asegura que la imagen no se desborde del círculo */
+  }
+  
+  .container2 {
+    width: 70%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2%;
+    border-radius: 2%;
+    box-shadow: rgba(1, 37, 61, 0.25) 0px 54px 55px, rgba(106, 109, 203, 0.12) 0px -12px 30px, rgba(136, 208, 218, 0.12) 0px 4px 6px, rgba(54, 65, 91, 0.17) 0px 12px 13px, rgba(4, 234, 250, 0.09) 0px -3px 5px;
+
+    text-align: center; /* Centra el texto en el contenedor2 */
+  }
+  
+  .icon {
+    width: 9%;
+    margin: 1%;
+  }
+  
+
+
+  .table tbody tr td {
+    vertical-align: middle;
+  }
+  
+  .cart-total {   
+    text-align: right;
+  }
+
+  .btnATC{
+    width: 7%;
+    background: none;
+    border: none;
+  }

@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
 import { ThankYouPageComponent } from './thank-you-page/thank-you-page.component';
 import { ReviewFormComponent } from './review-form/review-form.component';
+import { ProviderComponent } from './provider/provider.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: 'cart', component: CartComponent},
   {path: 'viewReview', component: ReviewFormComponent},
   {path: 'thank-you-page', component: ThankYouPageComponent},
+  {path: 'providers', component: ProviderComponent},
   {path: '**', redirectTo: '', pathMatch:'full'}
 ];
 
