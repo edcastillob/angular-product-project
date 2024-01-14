@@ -12,6 +12,7 @@ import { CartComponent } from './cart/cart.component';
 import { ThankYouPageComponent } from './thank-you-page/thank-you-page.component';
 import { ReviewFormComponent } from './review-form/review-form.component';
 import { ProviderComponent } from './provider/provider.component';
+import { CreateProviderComponent } from './provider/create-provider/create-provider.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: 'viewReview', component: ReviewFormComponent},
   {path: 'thank-you-page', component: ThankYouPageComponent},
   {path: 'providers', component: ProviderComponent},
+  {path: 'provider-add', component: CreateProviderComponent},
   {path: '**', redirectTo: '', pathMatch:'full'}
 ];
 
