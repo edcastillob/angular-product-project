@@ -1,0 +1,45 @@
+<div class="container">
+    <form [formGroup]="formProvider" (ngSubmit)="enviar()">    
+        <h1>New Provider</h1>
+        <hr>
+      <div class="mb-3">
+        <label for="name" class="form-label">Name:</label>
+        <input type="text" class="form-control" id="name" placeholder="...provider name" formControlName="name"
+          [ngClass]="{'is-invalid':  hasError('name', 'required') || hasError('name', 'minlength')}">
+        <span *ngIf="hasError('name', 'required')" class="text-danger">you have to complete this field name</span>
+        <span *ngIf="hasError('name', 'minlength')" class="text-danger">you have to write at least 3 characters</span>
+      </div>
+      <div class="mb-3">
+        <label for="address" class="form-label">Address:</label>
+        <input type="text" class="form-control" id="address" placeholder="... address" formControlName="address"
+          [ngClass]="{'is-invalid':  hasError('address', 'required') || hasError('address', 'minlength')}">
+        <span *ngIf="hasError('address', 'required')" class="text-danger">you have to complete this field address</span>
+        <span *ngIf="hasError('address', 'minlength')" class="text-danger">you have to write at least 10 characters</span>
+      </div>
+      <div class="mb-3">
+          <label for="phone" class="form-label">Phone:</label>
+          <input type="number" class="form-control" id="phone" placeholder="... phone" formControlName="phone"
+          [ngClass]="{'is-invalid':  hasError('phone', 'required') || hasError('phone', 'minlength')}">
+          <span *ngIf="hasError('phone', 'required')" class="text-danger">you have to complete this field phone</span>
+          <span *ngIf="hasError('phone', 'minlength')" class="text-danger">you have to write at least 10 characters</span>
+        </div>
+        <div class="mb-3">
+          <label for="rif" class="form-label">Rif:</label>
+          <input type="text" class="form-control" id="rif" placeholder="... rif" formControlName="rif"
+            [ngClass]="{'is-invalid':  hasError('rif', 'required') || hasError('rif', 'minlength')}">
+          <span *ngIf="hasError('rif', 'required')" class="text-danger">you have to complete this field rif</span>
+          <span *ngIf="hasError('rif', 'minlength')" class="text-danger">you have to write at least 10 characters</span>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email:</label>
+          <input type="text" class="form-control" id="email" placeholder="... email" formControlName="email"
+            [ngClass]="{'is-invalid':  hasError('email', 'required') || hasError('email', 'minlength')}">
+          <span *ngIf="hasError('email', 'required')" class="text-danger">you have to complete this field email</span>
+          <span *ngIf="hasError('email', 'email')" class="text-danger">enter correct email</span>
+        </div>
+        
+        
+        <button type="submit" class="btn btn-primary p-1">Submit</button>
+    </form>
+  </div>
+  

@@ -26,7 +26,7 @@ export class ProductAddComponent implements OnInit{
   
   constructor( 
     private route: ActivatedRoute,
-    private routerService: Router, // Cambiar el nombre de la variable a 'routerService'
+    private routerService: Router, 
     private formBuilder : FormBuilder,
     private _apiService : ApiService,
     private _snackBar: MatSnackBar,
