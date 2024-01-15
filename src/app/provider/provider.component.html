@@ -19,10 +19,14 @@
           <td>{{ item.name }}</td>
           <td>{{item.phone}}</td>         
           <td>{{item.email}}</td>  
-          <td> <button
+          <td> 
+            <button
             type="button"
-            class="btn btn-outline-secondary"            
-          ></button></td>     
+            class="btn btn-outline-secondary" 
+            [routerLink]="['/provider', item.id]"         
+          >
+        <img src="../../assets/detalle.png" style="width: 50%;" alt="">
+        </button></td>     
             
         </tr>
       </tbody>
