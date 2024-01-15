@@ -13,6 +13,7 @@ import { ThankYouPageComponent } from './thank-you-page/thank-you-page.component
 import { ReviewFormComponent } from './review-form/review-form.component';
 import { ProviderComponent } from './provider/provider.component';
 import { CreateProviderComponent } from './provider/create-provider/create-provider.component';
+import { DetailProviderComponent } from './provider/detail-provider/detail-provider.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path: 'thank-you-page', component: ThankYouPageComponent},
   {path: 'providers', component: ProviderComponent},
   {path: 'provider-add', component: CreateProviderComponent},
+  {path: 'provider/:providerId', component: DetailProviderComponent},
   {path: '**', redirectTo: '', pathMatch:'full'}
 ];
 

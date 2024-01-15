@@ -24,6 +24,7 @@ import { ReviewFormComponent } from './review-form/review-form.component';
 import { StarRatingModule } from 'angular-star-rating';
 import { ProviderComponent } from './provider/provider.component';
 import { CreateProviderComponent } from './provider/create-provider/create-provider.component';
+import { DetailProviderComponent } from './provider/detail-provider/detail-provider.component';
 
 
 
@@ -44,6 +45,7 @@ import { CreateProviderComponent } from './provider/create-provider/create-provi
     ReviewFormComponent,
     ProviderComponent,
     CreateProviderComponent,
+    DetailProviderComponent,
     
   ],
   imports: [
