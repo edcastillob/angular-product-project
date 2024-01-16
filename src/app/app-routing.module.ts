@@ -14,6 +14,7 @@ import { ReviewFormComponent } from './review-form/review-form.component';
 import { ProviderComponent } from './provider/provider.component';
 import { CreateProviderComponent } from './provider/create-provider/create-provider.component';
 import { DetailProviderComponent } from './provider/detail-provider/detail-provider.component';
+import { UpdateProviderComponent } from './provider/update-provider/update-provider.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path: 'providers', component: ProviderComponent},
   {path: 'provider-add', component: CreateProviderComponent},
   {path: 'provider/:providerId', component: DetailProviderComponent},
+  {path: 'update-provider/:id', component: UpdateProviderComponent},
   {path: '**', redirectTo: '', pathMatch:'full'}
 ];
 
