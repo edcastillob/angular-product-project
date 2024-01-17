@@ -20,11 +20,6 @@ export class ContactComponent implements OnInit{
 
 
 ngOnInit(): void {
-  //setear valores
-  // this.formContact.get('name')?.setValue(this.userActive)
-  // this.formContact.get('name')?.disable()
-
-  //obtener datos 
   this.formContact.valueChanges.subscribe((valor) => { 
     console.log(valor)
    })

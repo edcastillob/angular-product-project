@@ -1,4 +1,3 @@
-// review-form.component.ts
 import { Component, Input } from '@angular/core';
 import { ApiService } from '../services/api.service';
 
@@ -9,22 +8,20 @@ import { ApiService } from '../services/api.service';
 })
 export class ReviewFormComponent {
   @Input()
-  productId!: string;   // Recibimos el productId como entrada desde el componente padre
+  productId!: string;  
   rating: number = 0;
   comment: string = '';
 
   constructor(private _apiService: ApiService) {}
 
-  submitReview() {
-    // Enviamos la revisión al backend
+  submitReview() {   
     const reviewData = {
       rating: this.rating,
       comment: this.comment,
-      productId: this.productId  // Usamos el productId recibido como entrada
+      productId: this.productId  
     };
 
-    // this._apiService.submitReview(reviewData).subscribe((response: any) => {
-    //   // Manejar la respuesta del backend según sea necesario
+    // this._apiService.submitReview(reviewData).subscribe((response: any) => {   
     //   console.log('Revisión enviada con éxito');
     // });
   }

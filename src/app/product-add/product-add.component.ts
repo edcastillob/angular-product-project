@@ -1,4 +1,4 @@
-import { Component, Injector, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { ApiService } from '../services/api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -44,19 +44,14 @@ export class ProductAddComponent implements OnInit{
 
   
   
-  ngOnInit(): void {
-    //   this.formProduct.valueChanges.subscribe((valor) => { 
-      //   console.log(valor)
-      //  })
+  ngOnInit(): void { 
      
   const avatar = this._userService.getAvatarFromLocalStorage();
 
   if (!avatar) {
-    // Si no hay avatar en el localStorage, redirige a /login
     this.routerService.navigate(['/login']);
   }
-        
-      
+             
 
       this.formProduct.get('images')?.valueChanges.subscribe((value) => {
         if (value && value.length > 0) {
@@ -71,8 +66,7 @@ export class ProductAddComponent implements OnInit{
       this._snackBar.open(message, 'Cerrar', {
         duration: 3000,
       }).afterDismissed().subscribe(() => {
-        // Redirigir a la ruta /products después de mostrar el mensaje
-        this.routerService.navigate(['/products']); // Utilizar 'routerService'
+        this.routerService.navigate(['/products']); 
       });
     }
 
@@ -85,20 +79,17 @@ export class ProductAddComponent implements OnInit{
     
     if (this.formProduct.valid) {
       const productData = this.formProduct.value;
-
-      // Llamada al servicio para agregar un nuevo producto
+      
       this._apiService.newProduct(productData).subscribe(
         (response) => {
           console.log('Producto añadido con éxito:', response);
-          // Puedes agregar cualquier lógica adicional después de agregar el producto
           this.formProduct.reset();      
           this.files = [];  
           this.showMessageAndRedirect('Product create successfully');
           
         },
         (error) => {
-          console.error('Error al agregar el producto:', error);
-          // Maneja el error según tus necesidades
+          console.error('Error al agregar el producto:', error);         
         }
       );
     }
@@ -128,7 +119,7 @@ export class ProductAddComponent implements OnInit{
    const file_data = this.files[0];
    const data= new FormData();
    data.append('file', file_data);
-   data.append('upload_preset', 'images')// preset en cloudinary
+   data.append('upload_preset', 'images')
    data.append('cloud_name','prodelevatepf')
   
    this._upLoadService.upLoadImage(data).subscribe((response) => {

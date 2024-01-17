@@ -1,10 +1,7 @@
 <form (ngSubmit)="submitReview()">
-  <!-- Rating con estrellas -->
   <star-rating [(ngModel)]="rating" [readOnly]="false"></star-rating>
-  
-  <!-- Campo de comentario -->
+
   <textarea [(ngModel)]="comment" placeholder="Comment here."></textarea>
-  
-  <!-- Botón para enviar la revisión -->
+
   <button type="submit">Submit</button>
 </form>

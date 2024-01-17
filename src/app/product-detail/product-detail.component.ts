@@ -33,11 +33,10 @@ export class ProductDetailComponent implements OnInit {
           this.product = data;
         });
     
-      // Verificar la revisión del producto
       const username = this._userService.getUser();
       this._apiService.verifyReviewProduct(params['productId'], username)
         .subscribe((response: any) => {
-          // Manejar la respuesta booleana, por ejemplo, actualizando la variable viewReview
+         
           this.viewReview = response.hasPurchased;
           console.log(this.viewReview, 'review');
         });

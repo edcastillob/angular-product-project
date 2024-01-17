@@ -53,8 +53,8 @@ import { UpdateProviderComponent } from './provider/update-provider/update-provi
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,//form template
-    ReactiveFormsModule,// form reactive
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     MatSnackBarModule,
     BrowserAnimationsModule,

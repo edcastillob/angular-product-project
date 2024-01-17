@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router'; // Importa el tipo Router
+import { ActivatedRoute, Router } from '@angular/router'; 
 import { ApiService } from '../services/api.service';
 import { IProduct } from '../models/product.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -13,7 +13,7 @@ import { state, style, trigger, transition, animate } from '@angular/animations'
     trigger('done', [
       state('void', style({})),
       state('done', style({})),
-      transition('void => done', animate('300ms')), // Añadir una transición
+      transition('void => done', animate('300ms')), 
     ])],
 })
 export class UpdateProductComponent implements OnInit {
@@ -22,7 +22,7 @@ export class UpdateProductComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private routerService: Router, // Cambiar el nombre de la variable a 'routerService'
+    private routerService: Router, 
     private apiService: ApiService,
     private _snackBar: MatSnackBar
   ) { }
@@ -46,8 +46,7 @@ export class UpdateProductComponent implements OnInit {
     this._snackBar.open(message, 'Cerrar', {
       duration: 3000,
     }).afterDismissed().subscribe(() => {
-      // Redirigir a la ruta /products después de mostrar el mensaje
-      this.routerService.navigate(['/products']); // Utilizar 'routerService'
+      this.routerService.navigate(['/products']); 
     });
   }
 
@@ -55,7 +54,7 @@ export class UpdateProductComponent implements OnInit {
     if (this.productId !== null && this.product) {
       this.apiService.updateProduct(this.productId, this.product).subscribe(
         (data: IProduct) => {
-          // console.log('Product updated successfully:', data);
+        
           this.showMessageAndRedirect('Product updated successfully');
         },
         error => {

@@ -40,13 +40,11 @@ export class CartComponent implements OnInit {
       },
       error => {
         console.error('Error placing order', error);
-        // Maneja el error apropiadamente
       }
     );
   }
 
   goToProducts() {
-    // Lógica de navegación
     this._router.navigate(['/products']);
   }
 
@@ -72,9 +70,9 @@ export class CartComponent implements OnInit {
   }
 
   updateQuantity(productId: string, newQuantity: number): void {
-    // Validar que la nueva cantidad sea mayor o igual a 1
+   
     if (newQuantity < 1) {
-      newQuantity = 1; // Establecer la cantidad mínima permitida
+      newQuantity = 1; 
     }
 
     this._cartService.updateQuantity(productId, newQuantity);
@@ -107,10 +105,8 @@ export class CartComponent implements OnInit {
   
     dialogRef.afterClosed().subscribe((result: boolean) => {
       if (result) {
-        // El usuario hizo clic en "Aceptar", realiza la acción de eliminación aquí
         this.buy();
       } else {
-        // El usuario hizo clic en "Cancelar" o cerró el diálogo, no hagas nada
       }
     });
   }
@@ -122,10 +118,8 @@ export class CartComponent implements OnInit {
   
     dialogRef.afterClosed().subscribe((result: boolean) => {
       if (result) {
-        // El usuario hizo clic en "Aceptar", realiza la acción de eliminación aquí
         this.clearCart();
       } else {
-        // El usuario hizo clic en "Cancelar" o cerró el diálogo, no hagas nada
       }
     });
   }

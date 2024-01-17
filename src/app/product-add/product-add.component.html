@@ -45,12 +45,8 @@
         <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">        
         </ngx-dropzone-image-preview>
       </ngx-dropzone>
-      <!-- <div><button (click)="onUpLoad($event)">Enviar</button></div> -->
     </div>
-    <!-- <div class="mb-3">
-      <label for="images" class="form-label">Images:</label>
-      <input type="text" class="form-control" id="images" placeholder="...product images" formControlName="images">
-    </div> -->
+    
       <button type="submit" class="btn btn-primary p-1">Submit</button>
     </form>
   </div>

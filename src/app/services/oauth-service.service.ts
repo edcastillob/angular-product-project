@@ -1,8 +1,5 @@
 import { Injectable, OnInit } from '@angular/core';
-import { UserService } from './user.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
-import { OAuthService, AuthConfig, OAuthEvent, OAuthSuccessEvent } from 'angular-oauth2-oidc';
+import { OAuthService, AuthConfig } from 'angular-oauth2-oidc';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject, defer, from, of, switchMap, tap } from 'rxjs';
 
@@ -36,7 +33,6 @@ export class OAuthServiceService
 
   }
   loginGoogle(): void {
-    // Iniciar el flujo de autenticación
     this.oauthService.initImplicitFlow();
 
   }

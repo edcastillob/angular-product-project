@@ -45,8 +45,7 @@ private passwordValidator: ValidatorFn = (control: AbstractControl): ValidationE
       this._userService.loginUser(user).subscribe(
         (response: any) => {  // Cambiado de IUserLogin a IResponseLogin
           this.formLogin.reset();     
-          console.log(response.user);
-          // Guardar el token en el local storage
+          console.log(response.user);          
           localStorage.setItem('token', response.token);
           localStorage.setItem('avatar', response.user.image[0]);
           localStorage.setItem('fullname', response.user.fullname);
@@ -72,7 +71,7 @@ showMessageAndRedirect(message: string): void {
   this._snackBar.open(message, 'Cerrar', {
     duration: 2000,
   }).afterDismissed().subscribe(() => {    
-    this.routerService.navigate(['/products']); // Utilizar 'routerService'
+    this.routerService.navigate(['/products']); 
   });
 }
 showMessageError(message: string): void {

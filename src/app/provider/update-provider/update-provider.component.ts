@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { state, style, trigger, transition, animate } from '@angular/animations';
 import { IProvider } from 'src/app/models/provider.model';
 import { ProviderService } from 'src/app/services/provider.service';
 
